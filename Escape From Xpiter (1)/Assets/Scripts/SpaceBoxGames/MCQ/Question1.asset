@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63cbe2a482dde85488230299770b608d, type: 3}
+  m_Name: Question1
+  m_EditorClassIdentifier: 
+  Question: 'Why do we explore space ? '
+  Option1: 'To discover life supporting resources  '
+  Option2: 'By nature, we humans are explorers '
+  Option3: Be aware of large asteroids
+  Option4: 'All of the above. '
+  rightOption: 4
+  solutionReason: 

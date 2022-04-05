@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63cbe2a482dde85488230299770b608d, type: 3}
+  m_Name: Question3
+  m_EditorClassIdentifier: 
+  Question: Sun looks red in the morning, yellow in the afternoon and red again in
+    the evening. What is the color of the sun?
+  Option1: Blue
+  Option2: White
+  Option3: Yellow
+  Option4: Red
+  rightOption: 2
+  solutionReason: 
