@@ -180,7 +180,7 @@ public class PlayerController : MonoBehaviour
             if (myPv.IsMine)
             {
                 myPv.RPC("HandleTotalMoveCount", RpcTarget.All, "PlayerMoved");
-                Debug.Log("TriggerEntered");
+                //Debug.Log("TriggerEntered");
             }
             //Debug.Log(other.name);
         }
