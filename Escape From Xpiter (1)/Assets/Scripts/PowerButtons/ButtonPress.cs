@@ -37,7 +37,7 @@ public class ButtonPress : MonoBehaviour
     {
         if (!inRange) { return; }
         Debug.Log("E pressed");
-        assemblyCenter.IncreaseCount();        
+        assemblyCenter.IncreaseCount();
     }
 
     private void HandleCancelInteraction(InputAction.CallbackContext context)
@@ -53,7 +53,7 @@ public class ButtonPress : MonoBehaviour
         inRange = true;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("Player")) { return; }
         inRange = false;
