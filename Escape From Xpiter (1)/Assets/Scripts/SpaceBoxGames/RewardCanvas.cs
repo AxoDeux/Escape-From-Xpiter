@@ -18,13 +18,14 @@ public class RewardCanvas : MonoBehaviour
     public static int count = 0;
     private void Awake()
     {
+        count = 0;
         //Subscribe to spacebox events
         isRewarded = new bool[rewardImages.Length];
         for (int i = 0; i < rewardImages.Length; i++)         //setting all rewards bools to false
         {
             isRewarded[i] = false;
         }
-        spaceboxCount.text = count.ToString();
+        spaceboxCount.text = count.ToString();        
     }
 
     private void OnEnable()

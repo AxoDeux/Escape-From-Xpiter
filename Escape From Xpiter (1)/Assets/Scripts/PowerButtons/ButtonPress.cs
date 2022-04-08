@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class ButtonPress : MonoBehaviour
 {
     [SerializeField] private AssemblyCenter assemblyCenter = null;
+    [SerializeField] private AudioSource powerAudio = null;
 
     private PlayerInput playerInput;
     private InputAction interactAction;
@@ -37,6 +38,7 @@ public class ButtonPress : MonoBehaviour
         if (isOnCheck) { return; }
         Debug.Log("E pressed");
         isOnCheck = true;
+        powerAudio.Play();
         assemblyCenter.IncreaseCount(gameObject.transform.GetChild(0).gameObject);
     }
 

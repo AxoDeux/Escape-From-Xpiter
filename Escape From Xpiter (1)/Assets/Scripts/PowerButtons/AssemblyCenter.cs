@@ -8,7 +8,7 @@ using TMPro;
 [RequireComponent(typeof(PhotonView))]
 public class AssemblyCenter : MonoBehaviour
 {
-    [SerializeField] private GameObject[] powerButtons = null;      //the one having materials
+    [SerializeField] private GameObject[] powerButtonsMesh = null;      //the one having materials
     [SerializeField] private Texture greenTexture = null;
 
     public static int totalButtonsPressed = 0;
@@ -34,7 +34,7 @@ public class AssemblyCenter : MonoBehaviour
     public void IncreaseCount(GameObject powerButton)
     {
         int buttonNum = 0;
-        if (powerButton == powerButtons[0]) { buttonNum = 0; }
+        if (powerButton == powerButtonsMesh[0]) { buttonNum = 0; }
         else { buttonNum = 1; }
         myPV.RPC(nameof(AddButtonsPressed), RpcTarget.All, buttonNum);
     }
@@ -53,7 +53,7 @@ public class AssemblyCenter : MonoBehaviour
     {
         totalButtonsPressed++;
         CheckCount();
-        powerButtons[buttonNum].GetComponent<Renderer>().material.mainTexture = greenTexture;
+        powerButtonsMesh[buttonNum].GetComponent<Renderer>().material.mainTexture = greenTexture;
         Debug.Log($"Buttons pressed = {totalButtonsPressed}");
     }
 
