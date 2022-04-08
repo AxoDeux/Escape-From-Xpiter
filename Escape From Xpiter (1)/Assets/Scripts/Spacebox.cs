@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
 using Photon.Pun;
-using UnityEngine.UI;
+using TMPro; 
+
 
 public class Spacebox : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Spacebox : MonoBehaviour
     [SerializeField] private AudioSource correctAudio = null;
     [SerializeField] private AudioSource wrongAudio = null;
     [SerializeField] private AudioSource spaceboxOpen = null;
+
+    [SerializeField] private TMP_Text intructionText = null;
 
 
     private int spaceboxNo = 1;
@@ -58,6 +61,8 @@ public class Spacebox : MonoBehaviour
         if (!other.CompareTag("Player")) { return; }
         isPlayerNearby = true;
         //    playersInRange.Add(other.gameObject.GetComponent<PlayerController>());
+        intructionText.text = "Interact";
+        intructionText.gameObject.SetActive(true);
         Debug.Log(spaceboxNo);
     }
 
@@ -70,6 +75,7 @@ public class Spacebox : MonoBehaviour
         //{
         //     isPlayerNearby = false;
         //}
+        intructionText.gameObject.SetActive(false);
         isPlayerNearby = false;
     }
 

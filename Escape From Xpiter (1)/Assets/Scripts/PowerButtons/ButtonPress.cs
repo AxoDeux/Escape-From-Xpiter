@@ -13,7 +13,7 @@ public class ButtonPress : MonoBehaviour
     private InputAction interactAction;
 
     private bool inRange = false;
-    private bool pressedCheck = false;
+    private bool isOnCheck = false;
 
     private void Awake()
     {
@@ -23,29 +23,31 @@ public class ButtonPress : MonoBehaviour
 
     private void OnEnable()
     {
-        interactAction.started += HandleStartInteraction;
-        interactAction.canceled += HandleCancelInteraction;
+        interactAction.performed += HandleStartInteraction;
+        //interactAction.canceled += HandleCancelInteraction;
     }
 
     private void OnDisable()
     {
-        interactAction.started -= HandleStartInteraction;
-        interactAction.canceled -= HandleCancelInteraction;
+        interactAction.performed -= HandleStartInteraction;
+        //interactAction.canceled -= HandleCancelInteraction;
     }
 
     private void HandleStartInteraction(InputAction.CallbackContext obj)
     {
         if (!inRange) { return; }
+        if (isOnCheck) { return; }
         Debug.Log("E pressed");
-        assemblyCenter.IncreaseCount();
+        isOnCheck = true;
+        assemblyCenter.IncreaseCount(gameObject.transform.GetChild(0).gameObject);
     }
 
-    private void HandleCancelInteraction(InputAction.CallbackContext context)
+    /*private void HandleCancelInteraction(InputAction.CallbackContext context)
     {
         if (!inRange) { return; }
         Debug.Log("E Cancelled");
         assemblyCenter.DecreaseCount();
-    }
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {

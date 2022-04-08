@@ -4,12 +4,15 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using TMPro;
 
 [RequireComponent(typeof(PlayerInput), typeof(BoxCollider))]
 public class Wall : MonoBehaviour
 {
     [SerializeField] private Image countDownImage;
     [SerializeField] private Image countDownImage2;
+
+    [SerializeField] private TMP_Text intructionText = null;
 
     private PlayerInput playerInput;
     private InputAction breakWallsAction;
@@ -58,11 +61,15 @@ public class Wall : MonoBehaviour
     {
         if (other.CompareTag("Player"))
             isPlayerNearby = true;
+        intructionText.text = "Break";
+        intructionText.gameObject.SetActive(true);
+        
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
             isPlayerNearby = false;
+        intructionText.gameObject.SetActive(false);
     }
 
     private void BeginWallBreak(InputAction.CallbackContext context)            // call when player begins breaking
