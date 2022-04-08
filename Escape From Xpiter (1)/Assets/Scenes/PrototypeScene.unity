@@ -6923,7 +6923,7 @@ RectTransform:
   - {fileID: 1407784709}
   - {fileID: 1471235307}
   m_Father: {fileID: 2136235582}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9570,6 +9570,7 @@ MonoBehaviour:
   - {fileID: 1575108394}
   - {fileID: 1932599201}
   greenTexture: {fileID: 2800000, guid: df8ceadad73660f468f9de299e7e498f, type: 3}
+  InstructionPanel: {fileID: 1537077669}
 --- !u!1 &1840545690
 GameObject:
   m_ObjectHideFlags: 0
@@ -10687,6 +10688,7 @@ RectTransform:
   - {fileID: 902013466}
   - {fileID: 806840285}
   - {fileID: 1554763219}
+  - {fileID: 1537077670}
   m_Father: {fileID: 771369926}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

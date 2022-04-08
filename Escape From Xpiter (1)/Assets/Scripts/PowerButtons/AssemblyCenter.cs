@@ -10,7 +10,7 @@ public class AssemblyCenter : MonoBehaviour
 {
     [SerializeField] private GameObject[] powerButtons = null;      //the one having materials
     [SerializeField] private Texture greenTexture = null;
-    
+
     public static int totalButtonsPressed = 0;
     [SerializeField] private GameObject InstructionPanel;
 
@@ -33,15 +33,11 @@ public class AssemblyCenter : MonoBehaviour
     public void IncreaseCount(GameObject powerButton)
     {
         int buttonNum = 0;
-        if(powerButton == powerButtons[0]) { buttonNum = 0; }
+        if (powerButton == powerButtons[0]) { buttonNum = 0; }
         else { buttonNum = 1; }
-        myPV.RPC(nameof(AddButtonsPressed), RpcTarget.All,buttonNum);
+        myPV.RPC(nameof(AddButtonsPressed), RpcTarget.All, buttonNum);
     }
 
-    public void DecreaseCount()
-    {
-        myPV.RPC(nameof(SubtractButtonsPressed), RpcTarget.All);
-    }
 
     private void CheckCount()
     {
@@ -60,13 +56,6 @@ public class AssemblyCenter : MonoBehaviour
         Debug.Log($"Buttons pressed = {totalButtonsPressed}");
     }
 
-    [PunRPC]
-    private void SubtractButtonsPressed()
-    {
-        totalButtonsPressed--;
-        CheckCount();
-        Debug.Log($"Buttons pressed = {totalButtonsPressed}");
-    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -92,6 +81,11 @@ public class AssemblyCenter : MonoBehaviour
             {
                 InstructionPanel.SetActive(false);
                 InstructionPanel.transform.GetChild(0).gameObject.SetActive(false);
+            }
+            else
+            {
+                InstructionPanel.SetActive(false);
+                InstructionPanel.transform.GetChild(1).gameObject.SetActive(false);
             }
         }
     }
