@@ -27,6 +27,7 @@ public class AssemblyCenter : MonoBehaviour
     }
     private void Awake()
     {
+        totalButtonsPressed = 0;
         myPV = GetComponent<PhotonView>();
     }
 
@@ -92,6 +93,6 @@ public class AssemblyCenter : MonoBehaviour
     void CloseInstructionPanel()
     {
         InstructionPanel.SetActive(false);
-        InstructionPanel.transform.GetChild(0).gameObject.SetActive(false);
+        InstructionPanel.transform.GetChild(1).gameObject.SetActive(false);
     }
 }
