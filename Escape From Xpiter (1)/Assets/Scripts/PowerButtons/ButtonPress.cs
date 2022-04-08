@@ -24,13 +24,12 @@ public class ButtonPress : MonoBehaviour
     private void OnEnable()
     {
         interactAction.performed += HandleStartInteraction;
-        interactAction.canceled += HandleCancelInteraction;
     }
 
     private void OnDisable()
     {
         interactAction.performed -= HandleStartInteraction;
-        interactAction.canceled -= HandleCancelInteraction;
+
     }
 
     private void HandleStartInteraction(InputAction.CallbackContext obj)
@@ -38,13 +37,6 @@ public class ButtonPress : MonoBehaviour
         if (!inRange) { return; }
         Debug.Log("E pressed");
         assemblyCenter.IncreaseCount();
-    }
-
-    private void HandleCancelInteraction(InputAction.CallbackContext context)
-    {
-        if (!inRange) { return; }
-        Debug.Log("E Cancelled");
-        assemblyCenter.DecreaseCount();
     }
 
     private void OnTriggerEnter(Collider other)
