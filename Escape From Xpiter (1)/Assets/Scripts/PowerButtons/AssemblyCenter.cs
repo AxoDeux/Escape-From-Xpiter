@@ -11,10 +11,20 @@ public class AssemblyCenter : MonoBehaviour
     [SerializeField] private GameObject[] powerButtons = null;      //the one having materials
     [SerializeField] private Texture greenTexture = null;
     
+    public static int totalButtonsPressed = 0;
+    [SerializeField] private GameObject InstructionPanel;
 
-    private int totalButtonsPressed = 0;
     private PhotonView myPV;
 
+
+    private void OnEnable()
+    {
+        PlayerController._SpaceshipJigsaw += CloseInstructionPanel;
+    }
+    private void OnDisable()
+    {
+        PlayerController._SpaceshipJigsaw -= CloseInstructionPanel;
+    }
     private void Awake()
     {
         myPV = GetComponent<PhotonView>();
@@ -58,4 +68,36 @@ public class AssemblyCenter : MonoBehaviour
         Debug.Log($"Buttons pressed = {totalButtonsPressed}");
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            if (totalButtonsPressed < 2)
+            {
+                InstructionPanel.SetActive(true);
+                InstructionPanel.transform.GetChild(0).gameObject.SetActive(true);
+            }
+            else
+            {
+                InstructionPanel.SetActive(true);
+                InstructionPanel.transform.GetChild(1).gameObject.SetActive(true);
+            }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            if (totalButtonsPressed < 2)
+            {
+                InstructionPanel.SetActive(false);
+                InstructionPanel.transform.GetChild(0).gameObject.SetActive(false);
+            }
+        }
+    }
+    void CloseInstructionPanel()
+    {
+        InstructionPanel.SetActive(false);
+        InstructionPanel.transform.GetChild(0).gameObject.SetActive(false);
+    }
 }
