@@ -9343,7 +9343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33140718ad0904245bc88687d79337dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InstructionPanel: {fileID: 0}
+  InstructionPanel: {fileID: 1537077669}
 --- !u!1 &1840545690
 GameObject:
   m_ObjectHideFlags: 0
