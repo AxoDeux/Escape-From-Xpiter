@@ -23,13 +23,13 @@ public class ButtonPress : MonoBehaviour
 
     private void OnEnable()
     {
-        interactAction.started += HandleStartInteraction;
+        interactAction.performed += HandleStartInteraction;
         interactAction.canceled += HandleCancelInteraction;
     }
 
     private void OnDisable()
     {
-        interactAction.started -= HandleStartInteraction;
+        interactAction.performed -= HandleStartInteraction;
         interactAction.canceled -= HandleCancelInteraction;
     }
 

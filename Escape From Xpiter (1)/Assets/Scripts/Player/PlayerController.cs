@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private AnimationController playerAnimationController;
 
+
     //[SerializeField] private Slider oxygenLevel;
     public float oxygenLevel;
 
@@ -186,7 +187,10 @@ public class PlayerController : MonoBehaviour
         }
         if (other.CompareTag("SpaceShipArea"))
         {
-            isSpaceShipNearby = true;
+
+            if (AssemblyCenter.totalButtonsPressed == 2)
+                isSpaceShipNearby = true;
+
         }
 
     }
@@ -195,6 +199,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("SpaceShipArea"))
         {
             isSpaceShipNearby = false;
+
         }
     }
 
