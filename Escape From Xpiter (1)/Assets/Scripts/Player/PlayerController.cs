@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     //[SerializeField] private Slider oxygenLevel;
     public float oxygenLevel;
+    [SerializeField] private AudioSource oxygenAudio = null;
 
     private CharacterController controller;
     public PlayerInput playerInput;
@@ -172,6 +173,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void PlayOxySound()
+    {
+        oxygenAudio.Play();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
